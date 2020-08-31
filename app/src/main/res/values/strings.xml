@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FoodRunner</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">High Order Functionality</string>
+    <string name="nav_header_subtitle">High Order Functionality</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_myProfile">My Profile</string>
+    <string name="menu_favouriteRestaurants">Favourite Restaurants</string>
+    <string name="menu_FAQs">Frequently Asked Questions</string>
+    <string name="menu_faqs">FAQs</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="home_second">Home Second</string>
+</resources>

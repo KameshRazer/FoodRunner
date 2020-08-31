@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Orange"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="37sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="35dp"/>
+
+    <EditText
+        android:id="@+id/reg_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Name"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="120dp"/>
+
+    <EditText
+        android:id="@+id/reg_emailAdd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Email Address"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/reg_name"/>
+
+    <EditText
+        android:id="@+id/reg_mobileNo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Mobile Number"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/reg_emailAdd"/>
+
+    <EditText
+        android:id="@+id/reg_deliveryAdd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Delivery Address"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/reg_mobileNo"/>
+
+    <EditText
+        android:id="@+id/reg_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/reg_deliveryAdd"/>
+
+    <EditText
+        android:id="@+id/reg_confirmPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/reg_password"/>
+
+    <Button
+        android:id="@+id/reg_btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="#E60303"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/reg_confirmPass"/>
+
+
+</RelativeLayout>

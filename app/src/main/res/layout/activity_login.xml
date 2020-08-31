@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Orange"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="120dp"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/log_mobileNo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Mobile Number"
+        android:text="999388666"
+        android:inputType="number"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="180dp"/>
+
+    <EditText
+        android:id="@+id/log_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Password"
+        android:text="123456"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/log_mobileNo"/>
+
+    <Button
+        android:id="@+id/log_btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="#E60303"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/log_password"/>
+
+    <TextView
+        android:id="@+id/log_forgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forget Password?"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:layout_below="@id/log_btnLogin"/>
+
+    <TextView
+        android:id="@+id/log_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't have account? Sign up now"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="600dp"/>
+</RelativeLayout>

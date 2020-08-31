@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Q.1 How will the training be delivered?"
+        android:textColor="@color/Orange"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A.1 You will be taught using pre-recorded videos and text tutorials. The training has quizzes, assignments, and test to help you learn better. At the end of the training, you will attempt a project to get hands on practive of what you learn during your training"
+        android:textColor="@color/Black"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Black"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Q.2 What will be the timings of the training?"
+        android:textColor="@color/Orange"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A.2 As this is purely online training program, you can choose to learn at any time of the day. We will recommend a pace to be follwed throughtout the program, but hte actual timings and learning hours can be deided by students according to their convenience"
+        android:textColor="@color/Black"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Q.3 What is the duration of training?"
+        android:textColor="@color/Orange"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A.3 The training duration is of 6 weeks"
+        android:textColor="@color/Black"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Black"/>
+</LinearLayout>

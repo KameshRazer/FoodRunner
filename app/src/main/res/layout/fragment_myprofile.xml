@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Orange">
+
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="140dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/default_pic"/>
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/myProfile_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Name"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="150dp"/>
+
+    <EditText
+        android:id="@+id/myProfile_mobileNo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Mobile Number"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/myProfile_name"/>
+
+    <EditText
+        android:id="@+id/myProfile_emailAdd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Email Address"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/myProfile_mobileNo"/>
+
+    <EditText
+        android:id="@+id/myProfile_deliveryAdd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Delivery Address"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/myProfile_emailAdd"/>
+
+</RelativeLayout>
