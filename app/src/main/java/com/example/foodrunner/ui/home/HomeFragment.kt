@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
                 @SuppressLint("WrongConstant")
                 override fun onResponse(call: Call, response: okhttp3.Response) {
                     val str_response = response.body()!!.string()
-                    println(str_response)
+//                    println(str_response)
                     val json_data: JSONObject = JSONObject(str_response)
                     val json_final : JSONObject = JSONObject(json_data.get("data").toString())
                     val json_array: JSONArray = json_final.getJSONArray("data")

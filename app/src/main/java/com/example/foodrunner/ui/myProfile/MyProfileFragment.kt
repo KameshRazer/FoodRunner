@@ -26,7 +26,7 @@ class MyProfileFragment : Fragment(){
         val emailAdd = root.findViewById<EditText>(R.id.myProfile_emailAdd)
         val deliveryAdd = root.findViewById<EditText>(R.id.myProfile_deliveryAdd)
         name.setText(logInfo.getString("name","Error"))
-        mobile.setText(logInfo.getString("mobile","Error"))
+        mobile.setText(logInfo.getString("mobileNo","Error"))
         emailAdd.setText(logInfo.getString("emailAdd","Error"))
         deliveryAdd.setText(logInfo.getString("deliveryAdd","Error"))
         return root

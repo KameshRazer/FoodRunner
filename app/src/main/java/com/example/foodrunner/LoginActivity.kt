@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -51,16 +52,40 @@ class LoginActivity : AppCompatActivity() {
             else {
                 val actualData = JSONObject()
                 val json = MediaType.parse("application/json;charset*utf-8")
-                actualData.put("mobile_number",mobileNo.text.toString())
-                actualData.put("password",password.text.toString())
+                actualData.put("mobile_number",mobileNo.text)
+                actualData.put("password",password.text)
 
                 val reqBody = RequestBody.create(json,actualData.toString())
-                val res = MyMessenger().sendRequest(url,reqBody)
-                println("LoginActivity : $res")
-                logInfo.edit().putBoolean("logStatus", false).apply()
-                logInfo.edit().putString("mobileNo", mobileNo.text.toString()).apply()
-                logInfo.edit().putString("password", password.text.toString()).apply()
-//                startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
+                var response = JSONObject(MyMessenger().sendRequest(url,reqBody))
+
+                response = JSONObject(response.get("data").toString())
+                val isSuccess = (response.get("success").toString() == "true")
+
+                println("Success : $isSuccess")
+                println("Data : ${response}")
+                if(isSuccess){
+                    val result = JSONObject(response.get("data").toString())
+                    logInfo.edit().putBoolean("logStatus", false).apply()
+                    logInfo.edit().putString("userId",result.getString("user_id")).apply()
+                    logInfo.edit().putString("name",result.getString("name")).apply()
+                    logInfo.edit().putString("emailAdd",result.getString("email")).apply()
+                    logInfo.edit().putString("deliveryAdd",result.getString("address")).apply()
+                    logInfo.edit().putString("mobileNo", result.getString("mobile_number")).apply()
+                    startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
+                }else{
+                    val isError = (response.getString("errorMessage") == "Incorrect password")
+                    if(isError){
+                        password.setText("")
+                        password.error = "Incorrect password"
+//                        Toast.makeText(applicationContext,"Incorrect Password",Toast.LENGTH_LONG).show()
+                    }else{
+                        mobileNo.setText("")
+                        password.setText("")
+                        mobileNo.error = "Invalid Mobile Number"
+//                        Toast.makeText(applicationContext,"Invalid Mobile Number",Toast.LENGTH_LONG).show()
+                    }
+                }
+
             }
         }
 
