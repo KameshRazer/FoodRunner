@@ -15,10 +15,9 @@ import okhttp3.RequestBody
 import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
-    val details: ArrayList<String> = ArrayList(1)
-    val key: ArrayList<String> = ArrayList(1)
+
     private lateinit var  url : String
-    private lateinit var headers: MutableMap<String,String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -56,21 +55,13 @@ class LoginActivity : AppCompatActivity() {
                 actualData.put("password",password.text)
 
                 val reqBody = RequestBody.create(json,actualData.toString())
-                var response = JSONObject(MyMessenger().sendRequest(url,reqBody))
+                var response = JSONObject(MyMessenger().sendPOSTRequest(url,reqBody))
 
                 response = JSONObject(response.get("data").toString())
                 val isSuccess = (response.get("success").toString() == "true")
 
-                println("Success : $isSuccess")
-                println("Data : ${response}")
                 if(isSuccess){
-                    val result = JSONObject(response.get("data").toString())
-                    logInfo.edit().putBoolean("logStatus", false).apply()
-                    logInfo.edit().putString("userId",result.getString("user_id")).apply()
-                    logInfo.edit().putString("name",result.getString("name")).apply()
-                    logInfo.edit().putString("emailAdd",result.getString("email")).apply()
-                    logInfo.edit().putString("deliveryAdd",result.getString("address")).apply()
-                    logInfo.edit().putString("mobileNo", result.getString("mobile_number")).apply()
+                    MyMessenger().saveDataInLocal(logInfo,JSONObject(response.get("data").toString()))
                     startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
                 }else{
                     val isError = (response.getString("errorMessage") == "Incorrect password")

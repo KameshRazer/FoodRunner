@@ -24,15 +24,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 //        supportActionBar?.hide()
         url ="http://13.235.250.119/v2/register/fetch_result"
-        val actualData = JSONObject()
-        val json = MediaType.parse("application/json;charset*utf-8")
-        actualData.put("name","Razer")
-        actualData.put("mobile_number","9993886666")
-        actualData.put("password","123456")
-        actualData.put("address","NFS")
-        actualData.put("email","razer@nfs.com")
 
-        val reqBody = RequestBody.create(json,actualData.toString())
+
+
         logInfo = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)
         val name = findViewById<EditText>(R.id.reg_name)
         val emailAdd = findViewById<EditText>(R.id.reg_emailAdd)
@@ -42,8 +36,12 @@ class RegisterActivity : AppCompatActivity() {
         val confirmPass = findViewById<EditText>(R.id.reg_confirmPass)
         val btnRegister =  findViewById<Button>(R.id.reg_btnRegister)
 
-        val res = MyMessenger().sendRequest(url,reqBody)
-        println("Register : $res")
+        name.setText("Razer")
+        emailAdd.setText("razer@nfs.com")
+        mobileNo.setText("9993886666")
+        password.setText("123456")
+        deliveryAdd.setText("NFS")
+        confirmPass.setText("123456")
 
         btnRegister.setOnClickListener{
             if(TextUtils.isEmpty(name.text))
@@ -52,25 +50,43 @@ class RegisterActivity : AppCompatActivity() {
                 emailAdd.setError("Enter your Email Address")
             else if(TextUtils.isEmpty(mobileNo.text))
                 mobileNo.setError("Enter your Mobile Number")
+            else if(mobileNo.length()!=10)
+                mobileNo.error = "Invalid Number"
             else if(TextUtils.isEmpty(deliveryAdd.text))
                 deliveryAdd.setError("Enter your Delivery Address ")
             else if(TextUtils.isEmpty(password.text))
                 password.setError("Enter your password")
             else if ((confirmPass.text.toString()).equals(password.text.toString())) {
+
+                val actualData = JSONObject()
+                val json = MediaType.parse("application/json;charset*utf-8")
+                actualData.put("name",name.text)
+                actualData.put("mobile_number",mobileNo.text)
+                actualData.put("password",password.text)
+                actualData.put("address",deliveryAdd.text)
+                actualData.put("email",emailAdd.text)
+
+                val reqBody = RequestBody.create(json,actualData.toString())
+                var response = JSONObject(MyMessenger().sendPOSTRequest(url,reqBody))
+                response = JSONObject(response.getString("data"))
+                val isSuccess =(response.getString("success") == "true")
+
+                if (isSuccess){
+                    MyMessenger().saveDataInLocal(logInfo, JSONObject(response.getString("data")))
+                }else{
+                    mobileNo.error = "Error"
+                    emailAdd.error = "Error"
+                    Toast.makeText(applicationContext,"Mobile number of Email Id is already registered",Toast.LENGTH_LONG).show()
+                }
+
                 val display = Intent(this@RegisterActivity, LoginActivity::class.java)
 
-                logInfo.edit().putString("name",name.text.toString()).apply()
-                logInfo.edit().putString("emailAdd",emailAdd.text.toString()).apply()
-                logInfo.edit().putString("mobile",mobileNo.text.toString()).apply()
-                logInfo.edit().putString("deliveryAdd",deliveryAdd.text.toString()).apply()
-
-//                clearEditText()
-                name.setText("")
-                emailAdd.setText("")
-                mobileNo.setText("")
-                deliveryAdd.setText("")
-                password.setText("")
-                confirmPass.setText("")
+//                name.setText("")
+//                emailAdd.setText("")
+//                mobileNo.setText("")
+//                deliveryAdd.setText("")
+//                password.setText("")
+//                confirmPass.setText("")
                 Toast.makeText(this,"Register Success",Toast.LENGTH_LONG).show()
 //                startActivity(display)
             }else{
@@ -78,15 +94,5 @@ class RegisterActivity : AppCompatActivity() {
                 confirmPass.setError("Password Mismatch")
             }
         }
-
-        fun clearEditText(){
-            name.setText("")
-            emailAdd.setText("")
-            mobileNo.setText("")
-            deliveryAdd.setText("")
-            password.setText("")
-            confirmPass.setText("")
-        }
-
     }
 }

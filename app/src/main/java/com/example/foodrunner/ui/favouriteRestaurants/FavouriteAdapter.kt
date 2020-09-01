@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso
 class FavoriteAdapter (val foodList: MutableList<FavouriteRestaurants>): RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_display_food,parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_display_hotel,parent,false)
         return ViewHolder(v)
     }
 
@@ -30,11 +30,11 @@ class FavoriteAdapter (val foodList: MutableList<FavouriteRestaurants>): Recycle
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(list:FavouriteRestaurants,position:Int){
-            val name = itemView.findViewById<TextView>(R.id.rvdf_food_name)
-            val image = itemView.findViewById<ImageView>(R.id.rvdf_image_food)
-            val rating = itemView.findViewById<TextView>(R.id.rvdf_rating)
-            val cost = itemView.findViewById<TextView>(R.id.rvdf_food_rate)
-            val fav = itemView.findViewById<ToggleButton>(R.id.rvdf_icon_heart)
+            val name = itemView.findViewById<TextView>(R.id.rvdh_food_name)
+            val image = itemView.findViewById<ImageView>(R.id.rvdh_image_food)
+            val rating = itemView.findViewById<TextView>(R.id.rvdh_rating)
+            val cost = itemView.findViewById<TextView>(R.id.rvdh_food_rate)
+            val fav = itemView.findViewById<ToggleButton>(R.id.rvdh_icon_heart)
             fav.isChecked=true
             fav.setOnClickListener(View.OnClickListener {
                 val databaseHandler: DatabaseHandler = DatabaseHandler(itemView.context)

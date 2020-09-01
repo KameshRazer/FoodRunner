@@ -17,7 +17,7 @@ package com.example.foodrunner.ui.home
 //        val context = parent.context
 //        val layoutInflater = LayoutInflater.from(context)
 //        val DataListView: View =
-//            layoutInflater.inflate(R.layout.recyclerview_display_food, parent, false)
+//            layoutInflater.inflate(R.layout.recyclerview_display_hotel, parent, false)
 //        val viewHolder: ViewHolder
 //        viewHolder = ViewHolder(DataListView)
 //        return viewHolder
