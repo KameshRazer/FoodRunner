@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
                  list.add(data.getString("image_url"))
                  list.add(data.getString("rating"))
                  list.add(data.getString("cost_for_one"))
+                 list.add(data.getString("id"))
                  foodList.add(list)
              }
          }else{

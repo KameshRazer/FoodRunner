@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,9 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/Orange"
-        android:padding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/sf_hotel_name"
@@ -29,8 +27,7 @@
             android:layout_marginStart="10dp"
             android:layout_width="30dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_arrow_back"
-            />
+            android:src="@drawable/ic_arrow_back" />
     </RelativeLayout>
 
     <TextView
@@ -41,9 +38,7 @@
         android:padding="5dp"
         android:text="Choose from menu listed below:"
         android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="40dp"
@@ -51,28 +46,37 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="57dp"
         android:src="@drawable/ic_icon_favorite_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_toRightOf="@id/textView6" />
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/sf_line_black"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="2dp"
         android:background="#AFA0A0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:layout_below="@id/textView6"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sf_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/sf_line_black"
+        android:layout_above="@id/sf_confirm_order"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
-        android:paddingTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_goneMarginTop="20dp" />
+        android:paddingTop="10dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/sf_confirm_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Orange"
+        android:padding="10dp"
+        android:text="Proceed to Cart"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

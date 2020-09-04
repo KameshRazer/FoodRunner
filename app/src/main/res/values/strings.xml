@@ -16,4 +16,6 @@
     <string name="menu_logout">Logout</string>
 
     <string name="home_second">Home Second</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
 </resources>
