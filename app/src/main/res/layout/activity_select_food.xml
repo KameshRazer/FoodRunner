@@ -68,6 +68,7 @@
 
     <TextView
         android:id="@+id/sf_confirm_order"
+        android:translationY="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/Orange"
