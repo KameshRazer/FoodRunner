@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyCartActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Orange"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/mc_hotel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="3dp"
+            android:text="My Cart"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/mc_icon_back"
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/mc_order_from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:padding="5dp"
+        android:text="Ordering From :"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/mc_line_black"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#AFA0A0"
+        android:layout_below="@id/mc_order_from"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mc_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mc_line_black"
+        android:layout_above="@id/mc_confirm_order"
+        android:layout_marginStart="1dp"
+        android:paddingTop="10dp" />
+
+    <TextView
+        android:id="@+id/mc_confirm_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Orange"
+        android:padding="10dp"
+        android:text="Place Order(Total Rs. "
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/rvdm_s_no"
+        android:layout_width="20dp"
+        android:layout_height="8dp"
+        android:background="@color/Orange"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="10dp"
+        android:padding="7dp"/>
+    <TextView
+        android:id="@+id/rvdm_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rvdm_s_no"
+        android:layout_toLeftOf="@id/rvdm_rs"
+        android:layout_marginLeft="20dp"
+        android:text="foodname"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="7dp"/>
+    <TextView
+        android:id="@+id/rvdm_rs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="60dp"
+        android:text="Rs. "
+        android:textSize="20sp"
+        android:padding="7dp"/>
+    <TextView
+        android:id="@+id/rvdm_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="amt"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:padding="7dp"
+        android:layout_marginLeft="-70dp"
+        android:layout_toRightOf="@+id/rvdm_rs"/>
+
+</RelativeLayout>

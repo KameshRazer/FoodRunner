@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
@@ -66,6 +67,28 @@ class SelectFood : AppCompatActivity(),OnItemClickListener {
         backArrow.setOnClickListener {
             startActivity(Intent(this@SelectFood,HomeActivity::class.java))
         }
+        confirm.setOnClickListener{
+            val size = recyclerView.size
+            val order = JSONObject()
+            for(i in 0 until size-1){
+                val view = (recyclerView.layoutManager as LinearLayoutManager).findViewByPosition(i)
+                val status = view?.findViewById<ToggleButton>(R.id.rvdf_button)
+                if (status != null) {
+                    if(!status.isChecked){
+                        val foodName = view.findViewById<TextView>(R.id.rvdf_food_name)
+                        val cost = view.findViewById<TextView>(R.id.rvdf_cost)
+                        val jsonArray = JSONArray()
+                        jsonArray.put(foodName.text.toString())
+                        jsonArray.put((cost.text.toString()).split(" ")[1])
+                        order.put(i.toString(),jsonArray)
+                    }
+                }
+            }
+            val placeOrder = Intent(this@SelectFood,MyCartActivity::class.java)
+            placeOrder.putExtra("orderedFood",order.toString())
+            startActivity(placeOrder)
+        }
+
     }
 
 //  Adapter of Food selection recycler view
