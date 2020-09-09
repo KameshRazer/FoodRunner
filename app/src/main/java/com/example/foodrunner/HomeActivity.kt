@@ -57,10 +57,4 @@ class HomeActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        val logInfo = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)
-        if(logInfo.getBoolean("logStatus",false))
-            finishAffinity()
-    }
 }

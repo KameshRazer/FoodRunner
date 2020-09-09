@@ -1,50 +1,102 @@
 package com.example.foodrunner
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.view.menu.ActionMenuItemView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.ktor.http.LinkHeader
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import org.json.JSONArray
 import org.json.JSONObject
 import org.w3c.dom.Text
 import java.lang.Exception
 
 class MyCartActivity : AppCompatActivity() {
     private lateinit var orderedFood : ArrayList<ArrayList<String>>
+    private lateinit var layoutFinish : RelativeLayout
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_cart)
         val recyclerview = findViewById<RecyclerView>(R.id.mc_recyclerview)
         val confirmOrder = findViewById<TextView>(R.id.mc_confirm_order)
-//        val data = intent.getStringExtra("orderedFood")
-        val data ="{\"0\":[\"Kachaa Aloo Tadka\",\"6000\"],\"1\":[\"Bhajia Tadka\",\"60\"],\"2\":[\"Mirchi Tadka\",\"50\"]}"
+        val backIcon = findViewById<ImageView>(R.id.mc_icon_back)
+        val cardOk = findViewById<CardView>(R.id.mc_card_ok)
+        layoutFinish = findViewById(R.id.mc_layout_finish_order)
         orderedFood = ArrayList(1)
-        println(data)
+
+        val url ="http://13.235.250.119/v2/place_order/fetch_result/"
+        val logInfo = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)
+        val userId = logInfo.getString("userId","0")
+        val data = intent.getStringExtra("orderedFood")
+        val resId = intent.getStringExtra("resId")
+
+        val requestData = JSONObject()
+        requestData.put("user_id",userId)
+        requestData.put("restaurant_id",resId)
+
+        val foodItemArray = JSONArray()
         val food = JSONObject(data)
-        val size = food.length()
         var amt =0
-        for(i in 0 until size){
-            val food = food.getJSONArray(i.toString())
-            println(food.getString(0))
+
+        for(i in 0 until food.length()){
+            val foodArr = food.getJSONArray(i.toString())
             val data = ArrayList<String>(3)
-            data.add(food.getString(0))
-            data.add(food.getString(1))
-            amt += food.getString(1).toInt()
+            data.add(foodArr.getString(0))
+            data.add(foodArr.getString(1))
+            amt += foodArr.getString(1).toInt()
             orderedFood.add(data)
+            val temp = JSONObject()
+            temp.put("food_item_id",foodArr.getString(2))
+            foodItemArray.put(temp)
         }
+
+        requestData.put("total_cost",amt)
+        requestData.put("food",foodItemArray)
+
         confirmOrder.text = "Place Order (Total Rs. $amt)"
         recyclerview.adapter = MycartAdapter(orderedFood)
         recyclerview.layoutManager = LinearLayoutManager(this)
 
 
+        confirmOrder.setOnClickListener{
+            val json = MediaType.parse("application/json;charset*utf-8")
+//            val reqBody = RequestBody.create(json, requestData.toString())
+//            var response = JSONObject(MyMessenger().sendPOSTRequest(url,reqBody))
+//            println("MyCart : ${response.toString()}")
+//            response = JSONObject(response.get("data").toString())
+//            val isSuccess = (response.get("success").toString() == "true")
+//            if(isSuccess)
+//                layoutFinish.animate().translationX(0F).duration=400
+//            else{
+//                Toast.makeText(applicationContext,"Network Error",Toast.LENGTH_LONG).show()
+//            }
+        }
 
+        cardOk.setOnClickListener{
+            startActivity(Intent(this@MyCartActivity,HomeActivity::class.java))
+        }
+
+        backIcon.setOnClickListener{
+            super.onBackPressed()
+        }
     }
+
     class MycartAdapter(private val orderedList: ArrayList<ArrayList<String>>):RecyclerView.Adapter<MycartAdapter.ViewHolder>() {
 
 

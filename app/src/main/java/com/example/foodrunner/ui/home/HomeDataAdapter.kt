@@ -57,7 +57,7 @@ class HomeDataAdapter(val foodList: ArrayList<ArrayList<String>>): RecyclerView.
             layout.setOnClickListener(View.OnClickListener {
                 val selectFood = Intent(context,SelectFood::class.java)
                 selectFood.putExtra("hotelName",list[0])
-                selectFood.putExtra("id",list[4])
+                selectFood.putExtra("resId",list[4])
                 context.startActivity(selectFood)
             })
 

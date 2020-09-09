@@ -6,11 +6,12 @@
     android:padding="4dp">
     <TextView
         android:id="@+id/rvdf_s_no"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:text="1"
+        android:textAlignment="center"
         android:padding="4dp"
         android:textColor="#6E6968"
         android:textSize="15sp"/>
@@ -18,7 +19,7 @@
         android:id="@+id/rvdf_food_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_toRightOf="@id/rvdf_s_no"
         android:text="Food Name"
         android:textColor="@color/Black"
@@ -29,7 +30,7 @@
         android:id="@+id/rvdf_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/rvdf_s_no"
         android:layout_below="@id/rvdf_food_name"
         android:text="Rs 100"

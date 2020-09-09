@@ -82,12 +82,11 @@ class MyMessenger {
     }
 
      fun saveDataInLocal(logInfo:SharedPreferences,result:JSONObject){
-        logInfo.edit().putBoolean("logStatus", false).apply()
+        logInfo.edit().putBoolean("logStatus", true).apply()
         logInfo.edit().putString("userId",result.getString("user_id")).apply()
         logInfo.edit().putString("name",result.getString("name")).apply()
         logInfo.edit().putString("emailAdd",result.getString("email")).apply()
         logInfo.edit().putString("deliveryAdd",result.getString("address")).apply()
         logInfo.edit().putString("mobileNo", result.getString("mobile_number")).apply()
-
     }
 }

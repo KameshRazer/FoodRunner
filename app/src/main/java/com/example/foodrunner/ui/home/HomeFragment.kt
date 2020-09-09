@@ -62,13 +62,6 @@ class HomeFragment : Fragment() {
                  list.add(data.getString("id"))
                  foodList.add(list)
              }
-         }else{
-             val list = ArrayList<String>(4)
-             list.add("Error")
-             list.add("Error")
-             list.add("Error")
-             list.add("Error")
-             foodList.add(list)
          }
 
      }
