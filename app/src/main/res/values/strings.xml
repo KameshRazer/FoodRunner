@@ -12,6 +12,7 @@
     <string name="menu_myProfile">My Profile</string>
     <string name="menu_favouriteRestaurants">Favourite Restaurants</string>
     <string name="menu_FAQs">Frequently Asked Questions</string>
+    <string name="menu_oh">Order History</string>
     <string name="menu_faqs">FAQs</string>
     <string name="menu_logout">Logout</string>
 
