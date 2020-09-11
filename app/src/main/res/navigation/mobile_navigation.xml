@@ -36,6 +36,6 @@
     <fragment
         android:id="@+id/nav_orderHistory"
         android:name="com.example.foodrunner.ui.orderHistory.OrderHistoryFragment"
-        android:label="@string/menu_oh"
+        android:label="@string/menu_moh"
         tools:layout="@layout/fragment_order_history" />
 </navigation>

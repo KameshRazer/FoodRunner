@@ -37,24 +37,13 @@ class OrderHistoryFragment: Fragment() {
         response = JSONObject(response.getString("data"))
         val isSuccess = (response.getString("success") == "true")
         if(isSuccess){
-//            println(response.getString("data"))
             val restaurantArray :JSONArray = response.getJSONArray("data")
             for (i in 0 until restaurantArray.length()){
-//                println(restaurantArray.getString(i))
                 val data = JSONObject(restaurantArray[i].toString())
                 val list = ArrayList<String>(1)
                 list.add(data.getString("restaurant_name"))
-                list.add(data.getString("total_cost"))
+                list.add(data.getString("order_placed_at"))
                 list.add(data.getString("food_items"))
-                val t = JSONArray(list[2])
-                try{
-                    println("json -> $t")
-//                    println("len -> ${t.length()}")
-                 for(j in 0 until t.length())
-                println("$j -> ${t.get(j).toString()}")
-                }catch (e :Exception){println(e.message)}
-//                val arr = t.getJSONArray()
-//                println(JSONArray(list[2]))
                 orderedHistory.add(list)
             }
             adapter.notifyDataSetChanged()

@@ -10,7 +10,7 @@ import com.example.foodrunner.R
 class FoodItemAdapter(private val foodList: ArrayList<ArrayList<String>>): RecyclerView.Adapter<FoodItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_display_order_history,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_display_oh_fooditem,parent,false)
         return ViewHolder(view)
     }
 
@@ -24,8 +24,8 @@ class FoodItemAdapter(private val foodList: ArrayList<ArrayList<String>>): Recyc
 
     class ViewHolder(itemView :View):RecyclerView.ViewHolder(itemView){
 
-        val resName = itemView.findViewById<TextView>(R.id.rvdo_res_name)
-        val totCost = itemView.findViewById<TextView>(R.id.rvdo_total_cost)
+        val resName = itemView.findViewById<TextView>(R.id.rvdof_food_name)
+        val totCost = itemView.findViewById<TextView>(R.id.rvdof_cost)
         fun bindItems(data :ArrayList<String>){
             resName.text = data[0]
             totCost.text = data[1]

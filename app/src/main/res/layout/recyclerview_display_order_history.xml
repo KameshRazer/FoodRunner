@@ -2,25 +2,37 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:paddingBottom="10dp">
+    <RelativeLayout
+        android:id="@+id/rvdo_line_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#939191"/>
     <TextView
         android:id="@+id/rvdo_res_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rvdo_line_horizontal"
         android:text="Restaurant name"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/Black"
         android:textSize="20sp"/>
     <TextView
         android:id="@+id/rvdo_total_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rvdo_line_horizontal"
+        android:layout_marginTop="18dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"
-        android:text="amt"
-        android:textSize="20sp"/>
+        android:layout_marginRight="40dp"
+        android:text="11/11/1111"
+        android:textSize="16sp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvdo_recylerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="25dp"
         android:layout_below="@id/rvdo_res_name"/>
 </RelativeLayout>

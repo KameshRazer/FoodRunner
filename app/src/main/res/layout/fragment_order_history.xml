@@ -11,9 +11,9 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your previous order "
-        android:textSize="20sp"
-        android:padding="10dp"/>
+        android:text="Your previous orders are listed below: "
+        android:textSize="17sp"
+        android:padding="8dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/oh_recyclerview"
