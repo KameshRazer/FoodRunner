@@ -10,7 +10,7 @@ import kotlin.reflect.typeOf
 
 class MyMessenger {
 //    Sending post request to server
-    fun sendPOSTRequest(url :String , reqBody :RequestBody):String{
+    fun sendPOSTRequest(url :String , reqBody :RequestBody):JSONObject{
         val client = OkHttpClient()
         val countDownLatch = CountDownLatch(1)
         val headers = Headers.of(getHeader())
@@ -40,7 +40,7 @@ class MyMessenger {
             println("Catch : ${e.message}")
         }
         countDownLatch.await()
-        return finalResponse
+        return JSONObject(finalResponse)
     }
 //  Sending GET Request to server
 

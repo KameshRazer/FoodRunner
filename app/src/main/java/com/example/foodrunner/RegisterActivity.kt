@@ -24,10 +24,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 //        supportActionBar?.hide()
         url ="http://13.235.250.119/v2/register/fetch_result"
-
-
-
         logInfo = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)
+
         val name = findViewById<EditText>(R.id.reg_name)
         val emailAdd = findViewById<EditText>(R.id.reg_emailAdd)
         val mobileNo = findViewById<EditText>(R.id.reg_mobileNo)
@@ -35,13 +33,6 @@ class RegisterActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.reg_password)
         val confirmPass = findViewById<EditText>(R.id.reg_confirmPass)
         val btnRegister =  findViewById<Button>(R.id.reg_btnRegister)
-
-        name.setText("Razer")
-        emailAdd.setText("razer@nfs.com")
-        mobileNo.setText("9993886666")
-        password.setText("123456")
-        deliveryAdd.setText("NFS")
-        confirmPass.setText("123456")
 
         btnRegister.setOnClickListener{
             if(TextUtils.isEmpty(name.text))
@@ -67,7 +58,7 @@ class RegisterActivity : AppCompatActivity() {
                 actualData.put("email",emailAdd.text)
 
                 val reqBody = RequestBody.create(json,actualData.toString())
-                var response = JSONObject(MyMessenger().sendPOSTRequest(url,reqBody))
+                var response = MyMessenger().sendPOSTRequest(url,reqBody)
                 response = JSONObject(response.getString("data"))
                 val isSuccess =(response.getString("success") == "true")
 
@@ -76,19 +67,13 @@ class RegisterActivity : AppCompatActivity() {
                 }else{
                     mobileNo.error = "Error"
                     emailAdd.error = "Error"
-                    Toast.makeText(applicationContext,"Mobile number of Email Id is already registered",Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext,"Mobile number or Email Id is already registered",Toast.LENGTH_LONG).show()
                 }
 
-                val display = Intent(this@RegisterActivity, LoginActivity::class.java)
-
-//                name.setText("")
-//                emailAdd.setText("")
-//                mobileNo.setText("")
-//                deliveryAdd.setText("")
-//                password.setText("")
-//                confirmPass.setText("")
+                val display = Intent(this@RegisterActivity, HomeActivity::class.java)
                 Toast.makeText(this,"Register Success",Toast.LENGTH_LONG).show()
-//                startActivity(display)
+                startActivity(display)
+
             }else{
                 confirmPass.setText("")
                 confirmPass.setError("Password Mismatch")

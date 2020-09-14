@@ -18,7 +18,7 @@
             android:title="@string/menu_favouriteRestaurants" />
         <item
             android:id="@+id/nav_orderHistory"
-            android:icon="@drawable/ic_icon_favorite_border"
+            android:icon="@drawable/ic_icon_history"
             android:title="@string/menu_oh"/>
         <item
             android:id="@+id/nav_FAQs"

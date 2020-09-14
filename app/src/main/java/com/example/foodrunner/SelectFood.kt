@@ -57,7 +57,7 @@ class SelectFood : AppCompatActivity(),OnItemClickListener {
                 list.add(data.getString("cost_for_one"))
                 foodList.add(list)
             }
-            println("Select Food : ${foodList.toString()}")
+
             val adapter = SelectFoodAdapter(foodList, this)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(this)

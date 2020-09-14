@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                 actualData.put("password",password.text)
 
                 val reqBody = RequestBody.create(json,actualData.toString())
-                var response = JSONObject(MyMessenger().sendPOSTRequest(url,reqBody))
+                var response = MyMessenger().sendPOSTRequest(url,reqBody)
 
                 response = JSONObject(response.get("data").toString())
                 val isSuccess = (response.get("success").toString() == "true")

@@ -47,6 +47,7 @@
         android:hint="Mobile Number"
         android:inputType="numberDecimal"
         android:textSize="20sp"
+        android:maxLength="10"
         android:background="@drawable/rounded_corners"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

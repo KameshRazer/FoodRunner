@@ -13,7 +13,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <RelativeLayout
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_width="70dp"
         android:layout_height="70dp">
         <de.hdodenhof.circleimageview.CircleImageView
@@ -25,6 +25,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/nav_header_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -34,7 +35,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nav_header_mobile_no"
         android:paddingTop="4dp"
         android:textSize="15sp"
         android:layout_width="wrap_content"

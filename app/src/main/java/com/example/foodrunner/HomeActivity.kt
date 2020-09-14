@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -16,7 +17,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-
+import java.lang.Exception
 
 
 class HomeActivity : AppCompatActivity() {
@@ -34,6 +35,15 @@ class HomeActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
+
+        val head :View = navView.getHeaderView(0)
+        val name :TextView = head.findViewById(R.id.nav_header_name)
+        val mobile :TextView = head.findViewById(R.id.nav_header_mobile_no)
+
+        val logInfo = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)
+        name.text = logInfo.getString("name","error")
+        mobile.text = logInfo.getString("mobileNo","error")
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -48,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.home, menu)
+//        menuInflater.inflate(R.menu.home, menu)
         return true
     }
 
