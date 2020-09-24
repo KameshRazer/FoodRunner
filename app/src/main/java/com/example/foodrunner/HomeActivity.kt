@@ -134,8 +134,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(drawerLayout.isDrawerOpen(Gravity.START))
             drawerLayout.closeDrawer(Gravity.START)
-
-        if(navPosition == R.id.nav_home)
+        else if(navPosition == R.id.nav_home)
             finish()
         else{
             navPosition = R.id.nav_home
