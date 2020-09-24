@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_home"
+    tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/nav_home"
@@ -28,11 +29,6 @@
         android:name="com.example.foodrunner.ui.FAQs.FAQsFragment"
         android:label="@string/menu_FAQs"
         tools:layout="@layout/fragment_faqs" />
-    <fragment
-        android:id="@+id/nav_logout"
-        android:name="com.example.foodrunner.ui.logout.LogoutFragment"
-        android:label="@string/menu_logout"
-        tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/nav_orderHistory"
         android:name="com.example.foodrunner.ui.orderHistory.OrderHistoryFragment"

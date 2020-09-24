@@ -3,6 +3,7 @@ package com.example.foodrunner.ui.orderHistory
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -22,6 +23,7 @@ class OrderHistoryFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         orderedHistory = ArrayList(1)
         val view = inflater.inflate(R.layout.fragment_order_history,container,false)
         val logInfo = activity?.getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)!!
@@ -49,5 +51,10 @@ class OrderHistoryFragment: Fragment() {
             adapter.notifyDataSetChanged()
         }
         return view
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.clear()
     }
 }

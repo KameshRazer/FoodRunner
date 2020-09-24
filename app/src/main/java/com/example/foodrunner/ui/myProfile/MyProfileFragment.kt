@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -19,6 +20,7 @@ class MyProfileFragment : Fragment(){
     ): View? {
 //        slideshowViewModel=
 //            ViewModelProviders.of(this).get(SlideshowViewModel::class.java)
+        setHasOptionsMenu(true)
         val root = inflater.inflate(R.layout.fragment_myprofile, container, false)
         logInfo = activity?.getSharedPreferences("LoginInfo",Context.MODE_PRIVATE)!!
         val name = root.findViewById<EditText>(R.id.myProfile_name)
@@ -30,5 +32,10 @@ class MyProfileFragment : Fragment(){
         emailAdd.setText(logInfo.getString("emailAdd","Error"))
         deliveryAdd.setText(logInfo.getString("deliveryAdd","Error"))
         return root
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.clear()
     }
 }

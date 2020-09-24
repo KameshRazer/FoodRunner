@@ -21,17 +21,17 @@ class LogoutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_logout, container, false)
-        logInfo = activity?.getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)!!
-        logInfo.edit().clear().apply()
-        logout()
+//        logInfo = activity?.getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)!!
+//        logInfo.edit().clear().apply()
+//        logout()
         return view
     }
 
     override fun onResume() {
         super.onResume()
 //        println("On resume")
-        if(logInfo.getBoolean("logStatus",false))
-            logout()
+//        if(logInfo.getBoolean("logStatus",false))
+//            logout()
     }
     private fun logout(){
         startActivity(Intent(this@LogoutFragment.context, LoginActivity::class.java))
