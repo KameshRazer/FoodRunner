@@ -1,13 +1,16 @@
 package com.example.foodrunner.ui.favouriteRestaurants
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodrunner.R
+import com.example.foodrunner.SelectFood
 import com.example.foodrunner.ui.DatabaseHandler
 import com.example.foodrunner.ui.home.FavouriteRestaurants
 import com.squareup.picasso.Picasso
@@ -35,11 +38,23 @@ class FavoriteAdapter (val foodList: MutableList<FavouriteRestaurants>): Recycle
             val rating = itemView.findViewById<TextView>(R.id.rvdh_rating)
             val cost = itemView.findViewById<TextView>(R.id.rvdh_food_rate)
             val fav = itemView.findViewById<ToggleButton>(R.id.rvdh_icon_heart)
+            val layout = itemView.findViewById<RelativeLayout>(R.id.rvdh_relativelayout)
+            val context = itemView.context
             fav.isChecked=true
             fav.setOnClickListener(View.OnClickListener {
                 val databaseHandler: DatabaseHandler = DatabaseHandler(itemView.context)
-                val result = databaseHandler.deleteData(list)
+                if(fav.isChecked)
+                    databaseHandler.insertData(list)
+                else
+                    databaseHandler.deleteData(list)
             })
+
+            layout.setOnClickListener {
+                val selectFood = Intent(context,SelectFood::class.java)
+                selectFood.putExtra("hotelName",list.name)
+                selectFood.putExtra("resId",list.id.toString())
+                context.startActivity(selectFood)
+            }
 
             name.text=list.name
             rating.text=list.rating

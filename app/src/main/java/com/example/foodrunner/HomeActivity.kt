@@ -76,6 +76,8 @@ class HomeActivity : AppCompatActivity() {
 //        navView.setupWithNavController(navController)
 
         setFragment(HomeFragment())
+        navPosition = R.id.nav_home
+        navView.setCheckedItem(navPosition)
         navView.setNavigationItemSelectedListener { item ->
             when(item.itemId){
                 R.id.nav_home -> {
@@ -111,6 +113,7 @@ class HomeActivity : AppCompatActivity() {
             drawerLayout.closeDrawers()
             true
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -135,7 +138,7 @@ class HomeActivity : AppCompatActivity() {
         if(drawerLayout.isDrawerOpen(Gravity.START))
             drawerLayout.closeDrawer(Gravity.START)
         else if(navPosition == R.id.nav_home)
-            finish()
+            finishAffinity()
         else{
             navPosition = R.id.nav_home
             setFragment(HomeFragment())

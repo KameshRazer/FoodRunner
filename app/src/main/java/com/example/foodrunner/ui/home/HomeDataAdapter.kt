@@ -1,5 +1,6 @@
 package com.example.foodrunner.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,8 @@ class HomeDataAdapter(val foodList: ArrayList<ArrayList<String>>): RecyclerView.
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(list:ArrayList<String>,position:Int){
+        @SuppressLint("SetTextI18n")
+        fun bindItems(list:ArrayList<String>, position:Int){
             val name = itemView.findViewById<TextView>(R.id.rvdh_food_name)
             val image = itemView.findViewById<ImageView>(R.id.rvdh_image_food)
             val rating = itemView.findViewById<TextView>(R.id.rvdh_rating)
@@ -43,15 +45,15 @@ class HomeDataAdapter(val foodList: ArrayList<ArrayList<String>>): RecyclerView.
 
             name.text=list[0]
             rating.text=list[2]
-            cost.text = list[3]+"/Person"
+            cost.text = "${list[3]}/Person"
             Picasso.get().load(list[1]).into(image)
 
             fav.setOnClickListener(View.OnClickListener {
                 val databaseHandler:DatabaseHandler = DatabaseHandler(itemView.context)
                 if (fav.isChecked)
-                    databaseHandler.insertData(FavouriteRestaurants(position,list[0],list[1],list[2],list[3]))
+                    databaseHandler.insertData(FavouriteRestaurants(list[4].toInt(),list[0],list[1],list[2],list[3]))
                 else
-                    databaseHandler.deleteData(FavouriteRestaurants(position,list[0],list[1],list[2],list[3]))
+                    databaseHandler.deleteData(FavouriteRestaurants(list[4].toInt(),list[0],list[1],list[2],list[3]))
             })
 
             layout.setOnClickListener(View.OnClickListener {

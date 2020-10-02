@@ -39,7 +39,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if(foodList.size == 0)
             startRequest()
-        recyclerView.setOnClickListener(View.OnClickListener { println("Recycle click") })
     }
 
      private fun startRequest(){
@@ -52,7 +51,7 @@ class HomeFragment : Fragment() {
          if(isSuccess) {
              val jsonArray: JSONArray = jsonData.getJSONArray("data")
              val size = jsonArray.length()
-             for (i in 0 until size - 1) {
+             for (i in 0 until size) {
                  val list = ArrayList<String>(4)
                  val data: JSONObject = jsonArray.getJSONObject(i)
                  list.add(data.getString("name"))

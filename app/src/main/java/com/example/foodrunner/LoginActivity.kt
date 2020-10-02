@@ -63,6 +63,7 @@ class LoginActivity : AppCompatActivity() {
                 if(isSuccess){
                     MyMessenger().saveDataInLocal(logInfo,JSONObject(response.get("data").toString()))
                     startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
+                    this.finish()
                 }else{
                     val isError = (response.getString("errorMessage") == "Incorrect password")
                     if(isError){
@@ -83,12 +84,8 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        val logInfo = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE)
-        if(logInfo.getBoolean("logStatus",false))
-            finishAffinity()
+    override fun onBackPressed() {
+        finishAffinity()
     }
-
 
 }

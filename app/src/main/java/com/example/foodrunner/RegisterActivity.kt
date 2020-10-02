@@ -73,6 +73,7 @@ class RegisterActivity : AppCompatActivity() {
                 val display = Intent(this@RegisterActivity, HomeActivity::class.java)
                 Toast.makeText(this,"Register Success",Toast.LENGTH_LONG).show()
                 startActivity(display)
+                finish()
 
             }else{
                 confirmPass.setText("")

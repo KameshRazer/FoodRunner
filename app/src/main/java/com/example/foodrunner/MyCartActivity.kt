@@ -76,19 +76,19 @@ class MyCartActivity : AppCompatActivity() {
 
         confirmOrder.setOnClickListener{
             val json = MediaType.parse("application/json;charset*utf-8")
-//            val reqBody = RequestBody.create(json, requestData.toString())
-//            var response = JSONObject(MyMessenger().sendPOSTRequest(url,reqBody))
-//            println("MyCart : ${response.toString()}")
-//            response = JSONObject(response.get("data").toString())
-//            val isSuccess = (response.get("success").toString() == "true")
-//            if(isSuccess)
-//                layoutFinish.animate().translationX(0F).duration=400
-//            else{
-//                Toast.makeText(applicationContext,"Network Error",Toast.LENGTH_LONG).show()
-//            }
+            val reqBody = RequestBody.create(json, requestData.toString())
+            var response = MyMessenger().sendPOSTRequest(url,reqBody)
+            response = JSONObject(response.get("data").toString())
+            val isSuccess = (response.get("success").toString() == "true")
+            if(isSuccess)
+                layoutFinish.animate().translationX(0F).duration=400
+            else{
+                Toast.makeText(applicationContext,"Network Error",Toast.LENGTH_LONG).show()
+            }
         }
 
         cardOk.setOnClickListener{
+            finish()
             startActivity(Intent(this@MyCartActivity,HomeActivity::class.java))
         }
 

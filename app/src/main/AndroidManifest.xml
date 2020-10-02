@@ -18,13 +18,11 @@
 
         </activity>
         <activity android:name=".SelectFood" />
-        <activity android:name=".TempActivity"></activity>
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home">
         </activity>
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".DisplayResultActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

@@ -8,12 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
 import org.json.JSONObject
-import java.lang.Exception
 
 interface OnItemClickListener{
     fun onItemClick(isTrue :Boolean)
@@ -34,7 +32,7 @@ class SelectFood : AppCompatActivity(),OnItemClickListener {
         val backArrow = findViewById<ImageView>(R.id.sf_icon_back)
         val hotelName = findViewById<TextView>(R.id.sf_hotel_name)
 
-        recyclerView = findViewById<RecyclerView>(R.id.sf_recyclerview)
+        recyclerView = findViewById(R.id.sf_recyclerview)
         confirm = findViewById(R.id.sf_confirm_order)
         foodList =ArrayList(1)
         url = "http://13.235.250.119/v2/restaurants/fetch_result/"
@@ -91,6 +89,7 @@ class SelectFood : AppCompatActivity(),OnItemClickListener {
             placeOrder.putExtra("orderedFood", order.toString())
             placeOrder.putExtra("resId", resId)
             startActivity(placeOrder)
+            finish()
         }
 
     }

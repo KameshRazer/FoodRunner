@@ -57,9 +57,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     val isFirstTry = (response.getString("first_try").toString() == "false")
                     btnNext.visibility = View.INVISIBLE
                     layoutOTP.animate().translationX(0F).duration = 400
-//                    9993886666
                     if(isFirstTry){
-                        Toast.makeText(applicationContext,"24 hrs",Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext,"Please try after 24 hrs",Toast.LENGTH_LONG).show()
                     }
                 }else{
                     val msg = response.getString("errorMessage")
@@ -94,6 +93,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 if(isSuccess){
                     val msg = response.getString("successMessage")
                     Toast.makeText(applicationContext,msg,Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this@ForgotPasswordActivity, LoginActivity::class.java))
+                    finish()
                 }else{
                     otp.error = "Incorrect OTP"
                     Toast.makeText(applicationContext,"Invalid OTP",Toast.LENGTH_LONG).show()
